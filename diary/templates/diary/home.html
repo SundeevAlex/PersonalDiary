@@ -2,6 +2,26 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 <head>
+    <style>
+        .my_style {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+
+        .text-container {
+            position: absolute;
+            color: rgb(255, 255, 255);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(81, 81, 81, 0.8);
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
     <script src="{% static 'js/color-modes.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/holder.min.js' %}"></script>
@@ -172,7 +192,7 @@
 </div>
 
 <header data-bs-theme="dark">
-{% include 'diary/includes/inc_menu.html' %}
+    {% include 'diary/includes/inc_menu.html' %}
 </header>
 
 <main>
@@ -180,8 +200,8 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-<!--                <h1 class="fw-light">Album example</h1>-->
-<!--                <p class="lead text-body-secondary">Здесь Вы можете.</p>-->
+                <!--                <h1 class="fw-light">Album example</h1>-->
+                <!--                <p class="lead text-body-secondary">Здесь Вы можете.</p>-->
                 <p>
                     <a href="#" class="btn btn-primary my-2">Добавить запись в дневник</a>
                 </p>
@@ -196,7 +216,7 @@
 
 <footer class="text-body-secondary py-5">
     <div class="container">
-        <p class="float-end mb-1"><a href="{% url 'diary:diary_list' %}">На верх</a></p>
+        <p class="float-end mb-1"><a href="#">На верх</a></p>
         <p>&copy; 2024 - {% now 'Y' %}</p>
     </div>
 </footer>

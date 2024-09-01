@@ -1,25 +1,27 @@
 {% extends 'diary/home.html' %}
 {% block content %}
+{% load my_tags %}
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {% for el in record %}
             <div class="col">
                 <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                         xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                         preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#55595c"/>
-                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">{{ el.topic }}</text>
-                    </svg>
+                    <div class="my_style">
+                        <img src="{{ el.image_cover | media_filter }}" style="width: 100%; height: 38vh;">
+                        <div class="text-container">
+                            <h4>{{ el.topic }}</h4>
+                        </div>
+                    </div>
                     <div class="card-body">
-                        <p class="card-text">{{ el.content | truncatechars:100  }}</p>
+                        <p class="card-text">{{ el.content | truncatechars:100 }}</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                <a class="btn btn-primary" href="{% url 'diary:diary_detail' el.pk %}"
+                                   role="button">Посмотреть</a>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Редактировать</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Удалить</button>
                             </div>
-                            <small class="text-body-secondary">9 mins</small>
                         </div>
                     </div>
                 </div>
