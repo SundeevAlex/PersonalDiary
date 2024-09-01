@@ -1,16 +1,29 @@
-from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from diary.models import Diary
 
 
-def diary_list(request):
-    records = Diary.objects.all()
-    context = {"record": records}
-    return render(request, "diary/diary_list.html", context)
+class DiaryListView(ListView):
+    model = Diary
 
 
-def diary_detail(request, pk):
-    # record = Diary.objects.get(pk=pk)
-    record = get_object_or_404(Diary, pk=pk)
-    context = {"record": record}
-    return render(request, "diary/diary_detail.html", context)
+class DiaryDetailView(DetailView):
+    model = Diary
+
+
+class DiaryCreateView(CreateView):
+    model = Diary
+    fields = ('author', 'created_at', 'topic', 'image_cover', 'content', 'image', 'place')
+    success_url = reverse_lazy('diary:diary_list')
+
+
+class DiaryUpdateView(UpdateView):
+    model = Diary
+    fields = ('author', 'topic', 'image_cover', 'content', 'image', 'place')
+    success_url = reverse_lazy('diary:diary_list')
+
+
+class DiaryDeleteView(DeleteView):
+    model = Diary
+    success_url = reverse_lazy('diary:diary_list')
