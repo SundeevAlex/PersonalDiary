@@ -6,7 +6,7 @@ NULLABLE = {"blank": "True", "null": "True"}
 
 
 class Diary(models.Model):
-    author = models.ForeignKey(User, verbose_name='Автор', **NULLABLE, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, verbose_name='Автор', **NULLABLE, on_delete=models.SET_NULL)
     created_at = models.DateField(
         auto_created=True, verbose_name="Дата создания", **NULLABLE
     )
@@ -41,4 +41,4 @@ class Diary(models.Model):
         ordering = ["-created_at", "topic"]
 
     def __str__(self):
-        return f"{self.topic} {self.content}"
+        return f"{self.topic} {self.content} {self.author}"
