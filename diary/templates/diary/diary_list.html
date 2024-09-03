@@ -4,6 +4,7 @@
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% if user.is_authenticated %}
             {% for el in object_list %}
             <div class="col">
                 <div class="card shadow-sm">
@@ -34,6 +35,12 @@
                 </div>
             </div>
             {% endfor %}
+            {% else %}
+            <div class="container">
+            <h4>Войдите или зарегистрируйтесь, чтобы иметь возможность создавать или просматривать список ваших
+                записей.</h4>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
