@@ -15,7 +15,7 @@ class DiaryDetailView(DetailView):
 
 class DiaryCreateView(CreateView, LoginRequiredMixin):
     model = Diary
-    fields = ('author', 'created_at', 'topic', 'image_cover', 'content', 'image', 'place')
+    fields = ('created_at', 'topic', 'image_cover', 'content', 'image', 'place')
     success_url = reverse_lazy('diary:diary_list')
 
     def form_valid(self, form):
@@ -24,6 +24,7 @@ class DiaryCreateView(CreateView, LoginRequiredMixin):
         diary.author = user
         diary.save()
         return super().form_valid(form)
+
 
 class DiaryUpdateView(UpdateView):
     model = Diary
