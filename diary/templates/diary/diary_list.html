@@ -20,8 +20,12 @@
                             <div class="btn-group">
                                 <a class="btn btn-info" href="{% url 'diary:diary_detail' el.pk %}"
                                    role="button">Посмотреть</a>
+                            </div>
+                            <div class="btn-group">
                                 <a class="btn btn-primary" href="{% url 'diary:diary_update' el.pk %}"
                                    role="button">Редактировать</a>
+                            </div>
+                            <div class="btn-group">
                                 <a class="btn btn-danger" href="{% url 'diary:diary_delete' el.pk %}"
                                    role="button">Удалить</a>
                             </div>
