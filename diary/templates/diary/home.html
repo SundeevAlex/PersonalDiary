@@ -195,11 +195,9 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
-                <!--                <h1 class="fw-light">Album example</h1>-->
-                <!--                <p class="lead text-body-secondary">Здесь Вы можете.</p>-->
                 {% if user.is_authenticated %}
                 <form action="{% url 'diary:search_results' %}" method="get">
-                    <input name="q" type="text" placeholder="Поиск...">
+                    <input name="q" type="text" placeholder="Поиск по сайту...">
                     <button type="submit" class="btn btn-primary mb-2">Искать</button>
                 </form>
                 <p>_____________________________________________</p>

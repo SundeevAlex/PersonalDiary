@@ -10,7 +10,13 @@
             <div class="col">
                 <div class="card shadow-sm">
                     <div class="my_style">
+                        {% if el.image_cover %}
                         <img src="{{ el.image_cover | media_filter }}" style="width: 100%; height: 38vh;">
+                        {% else %}
+                        <img src="{{ 'diary/photo/cover/empty.jpg' | media_filter }}"
+                             style="width: 100%; height: 38vh;">
+                        {% endif %}
+                        <h4>{{ el.image_cover }}</h4>
                         <div class="text-container">
                             <h4>{{ el.topic }}</h4>
                         </div>

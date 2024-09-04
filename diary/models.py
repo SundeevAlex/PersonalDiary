@@ -13,7 +13,7 @@ class Diary(models.Model):
         auto_created=True, verbose_name="Дата создания", **NULLABLE
     )
     updated_at = models.DateField(
-        auto_now_add=True, verbose_name="Дата изменения", **NULLABLE
+        auto_now=True, verbose_name="Дата изменения", **NULLABLE
     )
     topic = models.CharField(
         max_length=50, verbose_name="Тема/заголовок", help_text="Введите тему/заголовок"
