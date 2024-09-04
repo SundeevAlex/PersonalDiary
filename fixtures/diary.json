@@ -26,5 +26,19 @@
       "image": "diary/photo/image2.jpg",
       "place": "Доминикана."
     }
+  },
+  {
+    "model": "diary.diary",
+    "pk": 3,
+    "fields": {
+      "created_at": "2024-09-01",
+      "author": 1,
+      "updated_at": "2024-09-01",
+      "topic": "Третий отпуск.",
+      "image_cover": "diary/photo/cover/cover3.jpg",
+      "content": "It was so....",
+      "image": "diary/photo/image3.jpg",
+      "place": "The Black sea"
+    }
   }
 ]
