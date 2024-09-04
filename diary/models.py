@@ -6,7 +6,9 @@ NULLABLE = {"blank": "True", "null": "True"}
 
 
 class Diary(models.Model):
-    author = models.ForeignKey(User, verbose_name='Автор', **NULLABLE, on_delete=models.SET_NULL)
+    author = models.ForeignKey(
+        User, verbose_name="Автор", **NULLABLE, on_delete=models.SET_NULL
+    )
     created_at = models.DateField(
         auto_created=True, verbose_name="Дата создания", **NULLABLE
     )

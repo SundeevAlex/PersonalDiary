@@ -35,11 +35,6 @@
 
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 
-    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#712cf9">
 
     <style>
@@ -203,9 +198,12 @@
                 <!--                <h1 class="fw-light">Album example</h1>-->
                 <!--                <p class="lead text-body-secondary">Здесь Вы можете.</p>-->
                 {% if user.is_authenticated %}
-                <p>
-                    <a href="{% url 'diary:diary_create' %}" class="btn btn-success">Добавить запись в дневник</a>
-                </p>
+                <form action="{% url 'diary:search_results' %}" method="get">
+                    <input name="q" type="text" placeholder="Поиск...">
+                    <button type="submit" class="btn btn-primary mb-2">Искать</button>
+                </form>
+                <p>_____________________________________________</p>
+                <a href="{% url 'diary:diary_create' %}" class="btn btn-success">Добавить запись в дневник</a>
                 {% endif %}
             </div>
         </div>
