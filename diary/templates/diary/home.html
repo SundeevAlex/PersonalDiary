@@ -197,7 +197,7 @@
             <div class="col-lg-6 col-md-8 mx-auto">
                 {% if user.is_authenticated %}
                 <form action="{% url 'diary:search_results' %}" method="get">
-                    <input name="q" type="text" placeholder="Поиск по сайту...">
+                    <input name="q" type="text" placeholder="Поиск в дневнике...">
                     <button type="submit" class="btn btn-primary mb-2">Искать</button>
                 </form>
                 <p>_____________________________________________</p>

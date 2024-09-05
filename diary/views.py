@@ -21,6 +21,8 @@ class SearchResultsView(ListView):
             Q(topic__icontains=query)
             | Q(content__icontains=query)
             | Q(place__icontains=query)
+            | Q(created_at__icontains=query)
+            | Q(updated_at__icontains=query)
         )
         return object_list
 
