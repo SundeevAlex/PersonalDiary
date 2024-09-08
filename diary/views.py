@@ -8,10 +8,14 @@ from diary.models import Diary
 
 
 class DiaryListView(ListView):
+    """ Просмотр списка записей в дневнике """
+
     model = Diary
 
 
 class SearchResultsView(ListView):
+    """Поиск записей в дневнике """
+
     model = Diary
     success_url = reverse_lazy("diary:search_results")
 
@@ -28,10 +32,14 @@ class SearchResultsView(ListView):
 
 
 class DiaryDetailView(DetailView):
+    """ Просмотр одной записи в дневнике """
+
     model = Diary
 
 
 class DiaryCreateView(CreateView, LoginRequiredMixin):
+    """ Создание записи в дневнике """
+
     model = Diary
     fields = ("created_at", "topic", "image_cover", "content", "image", "place")
     success_url = reverse_lazy("diary:diary_list")
@@ -45,11 +53,15 @@ class DiaryCreateView(CreateView, LoginRequiredMixin):
 
 
 class DiaryUpdateView(UpdateView):
+    """ Редактирование записи в дневнике """
+
     model = Diary
-    fields = ("author", "topic", "image_cover", "content", "image", "place")
+    fields = ("topic", "image_cover", "content", "image", "place")
     success_url = reverse_lazy("diary:diary_list")
 
 
 class DiaryDeleteView(DeleteView):
+    """ Удаление записи из дневника """
+
     model = Diary
     success_url = reverse_lazy("diary:diary_list")

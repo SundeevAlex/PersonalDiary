@@ -11,22 +11,26 @@
                 <div class="card shadow-sm">
                     <div class="my_style">
                         {% if el.image_cover %}
-                        <img src="{{ el.image_cover | media_filter }}" style="width: 100%; height: 38vh;">
+                        <a href="{% url 'diary:diary_detail' el.pk %}"><img src="{{ el.image_cover | media_filter }}"
+                                                                            style="width: 100%; height: 38vh;"></a>
                         {% else %}
-                        <img src="{{ 'diary/photo/cover/empty_scr.jpg' | media_filter }}"
-                             style="width: 100%; height: 38vh;">
+                        <a href="{% url 'diary:diary_detail' el.pk %}"><img
+                                src="{{ 'diary/photo/cover/empty_scr.jpg' | media_filter }}"
+                                style="width: 100%; height: 38vh;"></a>
                         {% endif %}
-                        <div class="text-container">
-                            <h4>{{ el.topic }}</h4>
-                        </div>
+                        <a href="{% url 'diary:diary_detail' el.pk %}">
+                            <div class="text-container">
+                                <h4>{{ el.topic }}</h4>
+                            </div>
+                        </a>
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{ el.place }}</p>
                         <p class="card-text">{{ el.content | truncatechars:100 }}</p>
-                        <p class="card-text">{{ el.author }}</p>
+                        <!--                        <p class="card-text">{{ el.author }}</p>-->
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a class="btn btn-info" href="{% url 'diary:diary_detail' el.pk %}"
+                                <a class="btn btn-primary" href="{% url 'diary:diary_detail' el.pk %}"
                                    role="button">Посмотреть</a>
                             </div>
                             <div class="btn-group">
