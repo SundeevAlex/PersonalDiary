@@ -12,6 +12,10 @@ class DiaryListView(ListView):
 
     model = Diary
 
+    def get_queryset(self):
+        queryset = Diary.objects.order_by('-created_at', 'topic')
+        return queryset
+
 
 class SearchResultsView(ListView):
     """Поиск записей в дневнике """
